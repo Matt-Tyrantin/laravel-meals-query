@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('meals', 'MealController@index');
+Route::get('meals', 'MealController@index')->middleware('verify.lang')->middleware('verify.diff_time');
