@@ -3,7 +3,7 @@ Laravel URL query for fetching specific meals from database. Includes seeds and 
 This isn't a serious project, rather an experiment.
 
 **menu** database consists of various tables: **meals**, **categories**, **ingredients**, **tags** with their respective translation 
-and pivot tables.
+and pivot tables. [dimsav/laravel-translatable](https://github.com/dimsav/laravel-translatable) is used for translation tables/models.
 # Usage
 ## Config
 You can configure number of seeded items in *\config\seeder.php*. Seeder uses [fzaninotto/Faker](https://github.com/fzaninotto/Faker) 
