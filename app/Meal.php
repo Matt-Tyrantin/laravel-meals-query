@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Meal extends Model
 {
     use SoftDeletes;
+    use \Dimsav\Translatable\Translatable;
 
-    protected $hidden = ['created_at', 'updated_at', 'deleted_at', 'category_id'];
+    public $translatedAttributes = ['title', 'description'];
+
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at', 'category_id', 'translations'];
 
     public function category(){
         return $this->belongsTo(Category::class);

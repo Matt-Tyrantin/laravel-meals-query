@@ -16,10 +16,20 @@ class CreateMealsTable extends Migration
         Schema::create('meals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('status');
+            $table->unsignedInteger('category_id')->nullable();
+
+            $table->timestamps();
+        });
+
+        Schema::create('meal_translations', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('meal_id')->unsigned();
+            $table->string('locale')->index();
+
             $table->string('title');
             $table->string('description');
-            $table->unsignedInteger('category_id')->nullable();
-            $table->timestamps();
+
+            $table->unique(['meal_id','locale']);
         });
     }
 
@@ -31,5 +41,6 @@ class CreateMealsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('meals');
+        Schema::dropIfExists('meal_translations');
     }
 }

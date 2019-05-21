@@ -16,7 +16,6 @@ class CreateIngredientMealTable extends Migration
         Schema::create('ingredient_meal', function (Blueprint $table) {
             $table->unsignedInteger('ingredient_id');
             $table->unsignedInteger('meal_id');
-            $table->timestamps();
         });
     }
 

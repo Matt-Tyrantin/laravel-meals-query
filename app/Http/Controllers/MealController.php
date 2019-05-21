@@ -19,6 +19,7 @@ class MealController extends Controller
     }
 
     public function index(Request $request){
+        app()->setLocale($request->get('lang'));
         $meals = $this->meals;
 
         if($request->exists('category'))

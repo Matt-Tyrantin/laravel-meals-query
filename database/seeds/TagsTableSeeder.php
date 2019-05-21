@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Tag;
+use Illuminate\Support\Facades\Config;
 
 class TagsTableSeeder extends Seeder
 {
@@ -12,6 +13,19 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Tag::class, 5)->create();
+        $faker = Faker\Factory::create();
+        $faker->addProvider(new FakerRestaurant\Provider\en_US\Restaurant($faker));
+
+        for( $i = 0; $i < Config::get('seeder.tags'); $i++ ){
+            $tag = new Tag();
+            $tag->save();
+
+            foreach (Config::get('seeder.languages') as $locale) {
+                $tag->translateOrNew($locale)->title = $faker->unique()->fruitName();
+            }
+
+            $tag->slug = 'tag-' .$tag->id;
+            $tag->save();
+        }
     }
 }

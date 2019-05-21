@@ -15,9 +15,18 @@ class CreateIngredientsTable extends Migration
     {
         Schema::create('ingredients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->default('slug');
             $table->timestamps();
+        });
+
+        Schema::create('ingredient_translations', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('ingredient_id')->unsigned();
+            $table->string('locale')->index();
+
+            $table->string('title');
+
+            $table->unique(['ingredient_id','locale']);
         });
     }
 
@@ -29,5 +38,6 @@ class CreateIngredientsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('ingredients');
+        Schema::dropIfExists('ingredient_translations');
     }
 }

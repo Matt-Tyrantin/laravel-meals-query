@@ -80,6 +80,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/vendor/jzonta/faker-restaurant" />
+      <path value="$PROJECT_DIR$/vendor/dimsav/laravel-translatable" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

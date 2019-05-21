@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMealTagTable extends Migration
+class CreateLanguagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateMealTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('meal_tag', function (Blueprint $table) {
-            $table->unsignedInteger('meal_id');
-            $table->unsignedInteger('tag_id');
+        Schema::create('languages', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('language')->unique();
         });
     }
 
@@ -26,6 +26,6 @@ class CreateMealTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('meal_tag');
+        Schema::dropIfExists('languages');
     }
 }

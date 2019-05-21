@@ -62,6 +62,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'verify.lang' => \App\Http\Middleware\VerifyLangQuery::class,
         'verify.diff_time' => \App\Http\Middleware\VerifyTimestampConstraint::class,
+        'show.page' => \App\Http\Middleware\ShowPageQuery::class,
     ];
 
     /**

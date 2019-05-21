@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Git Service Providers...
+         */
+        Dimsav\Translatable\TranslatableServiceProvider::class,
     ],
 
     /*

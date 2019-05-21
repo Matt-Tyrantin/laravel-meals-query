@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    protected $hidden = ['created_at', 'updated_at', 'deleted_at', 'pivot'];
+    use \Dimsav\Translatable\Translatable;
+
+    public $translatedAttributes = ['title'];
+
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at', 'pivot', 'translations'];
 
     public function meals(){
         return $this->belongsToMany(Meal::class);
